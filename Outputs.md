@@ -17,6 +17,7 @@ print(data[50])
 - Output:\
 ['1597759356.2377900', '8', '381', '80 C8 3F 00 00 F6 3C 05', 'Normal', 'Normal']
 
+
 ### Question 2: Find unique IDs
 #### Test case 1:
 data = get_data("proj1_data0.csv")\
