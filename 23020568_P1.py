@@ -251,7 +251,7 @@ def print_format2(word, value):
     """this function formats to print for task 7"""
     print(f"{word:<10}: {value:>9.4f}")
 
-data = get_data("proj1_data0.csv")
-interval = ecu_time_interval('153', data)
-for i in range(10):
-    print(round(interval[i], 5))
+    data = get_data("proj1_data0.csv")
+    interval = ecu_time_interval('153', data)
+    for i in range(10):
+        print(round(interval[i], 5))
