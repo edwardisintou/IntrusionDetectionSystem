@@ -262,3 +262,8 @@ def print_format2(word, value):
     interval = ecu_time_interval('153', data)
     for i in range(10):
         print(round(interval[i], 5))
+
+"""Question 8: Improving our IDS (only for bonus marks)
+Enter your student ID, parameter and results as follows (invalid submissions are ignored): 12345678, upper_sd, lower_sd, ceiling, accuracy, precision, recall, f1 score
+23020568, 0, 0, 0, 0.0902, 0.0901, 0.9999, 0.1653
+"""
