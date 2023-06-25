@@ -259,3 +259,37 @@ ID  Count    Min TS    Avg TS    Max TS     SD TS\
  593      7    0.1999    0.2002    0.2010    0.0004\
  5A6      7    0.1971    0.2007    0.2036    0.0024\
  5CD      7    0.1938    0.1997    0.2061    0.0040
+
+ ### Question 6: Intrusion detection
+#### Test case 1:
+data = get_data("proj1_data0.csv")
+stat = ecu_summary(data, False)
+detected, benign = intrusion_detection(data, stat)
+print(detected[0])
+print(benign[0])
+- Output:\
+['1597759747.427486', '000', '8', '00 00 00 00 00 00 00 00', 'Attack', 'Flooding']
+['1597759747.42668', '000', '8', '00 00 00 00 00 00 00 00', 'Attack', 'Flooding']
+
+#### Test case 2:
+data = get_data("proj1_data0.csv")\
+stat = ecu_summary(data, False)\
+detected, benign = intrusion_detection(data, stat)\
+for i in range(5):\
+    print(detected[i])
+- Output:\
+['1597759747.427486', '000', '8', '00 00 00 00 00 00 00 00', 'Attack', 'Flooding']\
+['1597759747.428444', '000', '8', '00 00 00 00 00 00 00 00', 'Attack', 'Flooding']\
+['1597759747.429188', '000', '8', '00 00 00 00 00 00 00 00', 'Attack', 'Flooding']\
+['1597759747.430111', '000', '8', '00 00 00 00 00 00 00 00', 'Attack', 'Flooding']\
+['1597759747.430662', '000', '8', '00 00 00 00 00 00 00 00', 'Attack', 'Flooding']
+
+#### Test case 3:
+data = get_data("proj1_data3_small.csv")\
+stat = ecu_summary(data, False)\
+detected, benign = intrusion_detection(data, stat)\
+print(detected[5])\
+print(benign[5])
+- Output:\
+['1597759356.3397400', '8', '0', '00 00 00 00 00 00 00 00', 'Attack', 'Flooding']\
+['1597759356.292780', '8', '130', '08 80 90 80 00 00 07 D3', 'Normal', 'Normal']
