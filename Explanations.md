@@ -23,3 +23,31 @@ Please note that, the order of columns in the provided CSV file may differ from 
 
 ### Question 3: Retrieve relevant data
 In this task, you are to write a function ecu_data(arbitration_id, data) that collects the timestamp and data associated with the given arbitration_ID and returns the list. Remember, this list does NOT contain the heading row. Only the rows in data that match the arbitration_ID are saved (where each row is also a list). The order of the columns may vary between files, but this order should not be modified. Hence, the final list returned is a nested list.
+
+
+### Question 4: Measuring the time intervals
+The next thing we need to do is to measure the time interval for each ECU (identified by the arbitration ID). In this task, you need to write a function ecu_time_interval(arbitration_id, data) that returns the list that contains the time interval between each data point for the chosen arbitration ID in the dataset. Here, data is the data retrieved from Task 1. Ensure to convert data types as appropriate. Since the columns may vary between datasets, the index of the timestamp column must be checked. An example is shown in Figure 4 using the data shown in Figure 3. As we are calculating the time differences, the size of the returning list will be one less than the size of the data for the chosen arbitration_ID.
+
+Hint, you are expected to utilise some of the previously implemented functions to complete this task.
+
+### Question 5: Summarising the statistics
+Your task is to write a function ecu_summary(data, to_print) that should output a summary in the format specified below:
+- ID: is the arbitration ID found in the data.
+- Count: is the number of times the given arbitration ID appears in the data.
+- Min TS: is the minimum time interval value for the given arbitration ID.
+- Avg TS: is the average time interval value for the given arbitration ID.
+- Max TS: is the maximum time interval value for the given arbitration ID.
+- SD TS: is the standard deviation of the time interval values for the given arbitration ID.
+
+Apply the formatting as follows:
+- All values are right aligned, including the headings.
+- ID has a default width of 4 characters.
+- Count has a default width of 7 characters.
+- Min TS has a default width of 10 characters and is formatted to 4 decimal places.
+- Avg TS, Max TS and SD TS are formatted the same as the Min TS.
+- The headings have the same formatting, other than the number-related ones./
+The function only prints the above output only if to_print is set to True, which is set to True by default.
+
+Finally, return the statistics results as a list, where each data is a tuple containing the ID, Count, Min TS,
+Avg TS, Max TS and the SD TS.
+#### This concludes section 1 pre-processing, now we can move onto intrusion detection!
