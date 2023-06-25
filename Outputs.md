@@ -321,7 +321,7 @@ F1 Score  :    0.6790
 - Input:\
 upper_sd: 0\
 lower_sd: 0\
-ceiling: 0\
+ceiling: 0
 
 - Output:\
 Accuracy  :    0.0902\
