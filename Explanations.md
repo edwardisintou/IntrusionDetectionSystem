@@ -45,7 +45,7 @@ Apply the formatting as follows:
 - Count has a default width of 7 characters.
 - Min TS has a default width of 10 characters and is formatted to 4 decimal places.
 - Avg TS, Max TS and SD TS are formatted the same as the Min TS.
-- The headings have the same formatting, other than the number-related ones./
+- The headings have the same formatting, other than the number-related ones.\
 The function only prints the above output only if to_print is set to True, which is set to True by default.
 
 Finally, return the statistics results as a list, where each data is a tuple containing the ID, Count, Min TS,
