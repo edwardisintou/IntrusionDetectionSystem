@@ -49,6 +49,5 @@ Apply the formatting as follows:
 
 The function only prints the above output only if to_print is set to True, which is set to True by default.
 
-Finally, return the statistics results as a list, where each data is a tuple containing the ID, Count, Min TS,
-Avg TS, Max TS and the SD TS.
+Finally, return the statistics results as a list, where each data is a tuple containing the ID, Count, Min TS,Avg TS, Max TS and the SD TS.
 #### This concludes section 1 pre-processing, now we can move onto intrusion detection!
