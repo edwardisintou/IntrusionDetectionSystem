@@ -55,7 +55,7 @@ Finally, return the statistics results as a list, where each data is a tuple con
 ## Section 2: Intrusion detection using statistical analysis
 We can use statistical analysis as a simple method to detect intrusions in this case. The approach involves identifying outliers based on the statistical analysis we performed in section 1. For example, if the time interval between the ECU data points is significantly slower or faster, then it could be regarded as an intrusion. We will now proceed to implement this method.
 
-### Question 6:  Intrusion detection
+### Question 6: Intrusion detection
 * This part is the most complex one in this project, so please make sure to read it carefully.
 
 You will write a function intrusion_detection(data, stats, upper_sd, lower_sd, ceiling) that returns two lists – detected and benign.
