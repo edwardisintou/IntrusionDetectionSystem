@@ -49,7 +49,7 @@ Apply the formatting as follows:
 
 The function only prints the above output only if to_print is set to True, which is set to True by default.
 
-Finally, return the statistics results as a list, where each data is a tuple containing the ID, Count, Min TS,Avg TS, Max TS and the SD TS.
+Finally, return the statistics results as a list, where each data is a tuple containing the ID, Count, Min TS, Avg TS, Max TS and the SD TS.
 #### This concludes section 1 pre-processing, now we can move onto intrusion detection!
 
 ## Section 2: Intrusion detection using statistical analysis
@@ -76,3 +76,59 @@ From above, you end up with two types of outputs – ones that are classified as
 For the given data with arbitration ID 153, the Average TS is 0.0097 and the SD TS is 0.0014. If we set upper_sd and lower_sd to be 3 (the default value), then the range becomes [0.0055, 0.0139]. So, any time interval falling outside this range will be regarded as intrusion for ID 153 (for the cases in Figure 4, none of them are regarded as intrusions).
 
 Finally, the function will return two lists – detected and benign. The list detected contains all the data associated with time intervals being outside the detection range. For example, if row 1 in Figure 4 was an intrusion, then row 2 from Figure 3 will be added to the detected list. Any other values not inside the detected list should be placed in the benign list. That is, the size of data – 1 should be equal to the size of detected + benign (the minus 1 is the heading).
+
+### Question 7: Evaluating the intrusion detection system
+Our final task is to evaluate how well our intrusion detection system works. This is done by calculating some performance metrics. For our evaluation, we will calculate four metrics – accuracy, precision, recall and F1 score. The calculations of these metrics are all available from this page (you can do your own research in addition to reading this):\
+https://en.wikipedia.org/wiki/F-score
+- The accuracy measures how well the intrusion detection system has performed.
+- The precision measures the ratio of intrusions detected out of all detections.
+- The recall measures the ratio of intrusions detected out of all intrusions.
+- F1 score measure is a balanced representation of both precision and recall.
+
+For example, high precision means you were able to detect a high number of intrusions. On the other hand, high recall means you have a low number of wrongly classified benign data. In case of high precision and low recall, it means you have likely just labelled most data as intrusion (thus, many false negatives). In case of low precision and high recall, it means many intrusions bypassed the intrusion detection system. So, a good balance between the two are essential in practice, which is measured by F1 Score metric.
+
+You already have two lists – detected and benign, from Task 6. So you can use these two lists to
+calculate these metrics.
+
+Write a function result_analysis(data, detected, benign) that prints the statistical analysis results for your intrusion detection system. The outputs should be, in the order:
+- Accuracy: label “Accuracy” with the text width being 10, followed by colon “:”, followed by
+the result formatted to 4 decimal places with the text width being 10 also.
+- Precision, Recall and F1 Score are printed in this order with the same formatting.
+
+Using the default values (i.e., upper_sd and lower_sd set to 3, ceiling set to 0.01) with the dataset proj1_data0.csv, you should get the following output:
+- Accuracy: 0.5464
+- Precision: 0.0739
+- Recall: 0.9997
+- F1 Score: 0.1376
+
+In fact, the result is pretty bad! - The F1 Score of 0.1 is actually worse than a random guess (e.g., a coin-flip method will achieve 0.5 F1 Score)! Well thankfully, we can improve our IDS!
+
+### Question 8: Improving our IDS (only for bonus marks)
+The base parameter is very bad for our IDS, as its performance metrics are all below average at best. There are three default values we have set, but not really changed in our testings. To improve its performance, we will experiment with changing the default values of some parameters. So let’s change some to see what happens!
+
+A random guess is to increase the upper_sd and lower_sd values. Trying 4 for both gives us:
+- Accuracy: 0.5503
+- Precision: 0.0745
+- Recall: 0.9997
+- F1 Score: 0.1387
+
+Not bad, we improved both accuracy and F1 score a little, but we can probably do better. This time, let’s try to decrease the ceiling value (i.e., we take samples faster). Setting ceiling to 0.005 gives us:
+- Accuracy: 0.5715
+- Precision: 0.0779
+- Recall: 0.9997
+- F1 Score: 0.1445
+
+Great! So we see that we can increase the performance by altering the parameter values. This should give you some idea that you can fiddle with those three parameters in order to improve your IDS. So now it is your turn to go fiddle with those parameters to get the best results!
+
+Final remarks: make sure you have the module docstring for your project code, indicating your name, your student ID number along with the description of the project.
+
+### Bonus marks
+If you participate in Task 8, you can upload your parameter values and the results on the Quiz Server “Project 1 Task 8 submissions” as feedback. You will also be able to check other people’s results on the analysis tab.
+
+Top accuracy or precision or recall or F1 score (total 4 students but doesn’t stack i.e., if you get top in both recall and F1 score, you only get the bonus mark once) – 10 bonus marks.\
+Top 20 students for F1 score – 5 bonus marks.\
+Top 50 students for F1 score – 2 bonus marks.
+
+- NOTE1: the dataset for testing for this should be proj1_data1.csv!
+- NOTE2: If there are two or more submissions with the same parameter values, the first one is counted.
+- NOTE3: If you find wrong results for the parameter values submitted, please report them!
