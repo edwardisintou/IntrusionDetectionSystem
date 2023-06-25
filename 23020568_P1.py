@@ -11,6 +11,7 @@ Throughout this project, we will explore how the above technique can be used to 
 import statistics
 import math
 
+"""Question 1: Import data"""
 def get_data(filename):
     """this function gets a filename
     and retrieves the data from the given file"""
@@ -23,6 +24,7 @@ def get_data(filename):
         
     return line_list
 
+"""Question 2: Find unique IDs"""
 def unique_id(data):
     """this function returns the list of
     sorted unique arbitration IDs from the given data"""
@@ -46,6 +48,7 @@ def unique_id(data):
     
     return unique_id_list
 
+"""Question 3: Retrieve relevant data"""
 def ecu_data(arbitration_id, data):
     """this function  collects the timestamp and data
     associated with the given arbitration_ID and return the list"""
@@ -65,6 +68,7 @@ def ecu_data(arbitration_id, data):
     
     return data_list
 
+"""Question 4: Measuring the time intervals"""
 def ecu_time_interval(arbitration_id, data):
     """this function returns the list
     that contains the time interval between each data point
@@ -95,6 +99,7 @@ def ecu_time_interval(arbitration_id, data):
     
     return time_interval
 
+"""Question 5: Summarising the statistics"""
 def ecu_summary(data, to_print=True):
     """this function summaries the file and then return 
     statistics results as a list, where each data is a tuple""" 
@@ -164,6 +169,7 @@ def time_interval_ceiling(interval, ceiling=0.01) -> list:
     """
     return [math.floor(row / ceiling) * ceiling for row in interval]
 
+"""Question 6: Intrusion detection"""
 def intrusion_detection(data, stats, upper_sd=3, lower_sd=3, ceiling=0.01):
     """this function returns 2 lists: detected and benign
     detected: intrusion
@@ -207,6 +213,7 @@ def intrusion_detection(data, stats, upper_sd=3, lower_sd=3, ceiling=0.01):
     
     return detected_list, benign_list
 
+"""Question 7: Evaluating the intrusion detection system"""
 def result_analysis(data, detected, benign):
     """this function analysises the result to evaluate
     how well our intrusion detection system works"""
