@@ -293,3 +293,26 @@ print(benign[5])
 - Output:\
 ['1597759356.3397400', '8', '0', '00 00 00 00 00 00 00 00', 'Attack', 'Flooding']\
 ['1597759356.292780', '8', '130', '08 80 90 80 00 00 07 D3', 'Normal', 'Normal']
+
+### Question 7: Evaluating the intrusion detection system
+#### Test case 1:
+data = get_data("proj1_data0.csv")\
+stat = ecu_summary(data, False)\
+detected, benign = intrusion_detection(data, stat)\
+result_analysis(data, detected, benign)
+- Output:\
+Accuracy  :    0.5464\
+Precision :    0.0739\
+Recall    :    0.9997\
+F1 Score  :    0.1376
+
+#### Test case 2:
+data = get_data("proj1_data3_small.csv")\
+stat = ecu_summary(data, False)\
+detected, benign = intrusion_detection(data, stat)\
+result_analysis(data, detected, benign)
+- Output:\
+Accuracy  :    0.6904\
+Precision :    0.5142\
+Recall    :    0.9994\
+F1 Score  :    0.6790
