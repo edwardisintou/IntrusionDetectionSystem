@@ -316,3 +316,15 @@ Accuracy  :    0.6904\
 Precision :    0.5142\
 Recall    :    0.9994\
 F1 Score  :    0.6790
+
+### Question 8: Improving our IDS (only for bonus marks)
+- Input:\
+upper_sd: 0\
+lower_sd: 0\
+ceiling: 0\
+
+- Output:\
+Accuracy  :    0.0902\
+Precision :    0.0901\
+Recall    :    0.9999\
+F1 Score  :    0.1653
